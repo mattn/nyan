@@ -28,7 +28,4 @@ jobs:
       run: |
         go build -v .
         go test ./... -coverprofile c.out
-    - name: Report Code Coverage
-      run: |
-        pwd
         ~/cc-test-reporter after-build
