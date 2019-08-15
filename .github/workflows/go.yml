@@ -22,6 +22,8 @@ jobs:
     - name: Get dependencies
       run: |
         go mod download
+      env:
+        GO111MODULE: on
     - name: Build & Test
       run: |
         go build -v .
@@ -30,6 +32,5 @@ jobs:
         curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         chmod +x ./cc-test-reporter
         ./cc-test-reporter after-build
-      # env:
-      #   CC_TEST_REPORTER_ID: f4c78effd3a10a5a45239e6886b35f42475467ad53f09a01002feeb04eb92d5b
-      #   GO111MODULE: on
+      env:
+        GO111MODULE: on
