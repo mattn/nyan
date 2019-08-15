@@ -7,6 +7,8 @@ jobs:
     steps:
     - name: Install Code Climate Reporter
       run: |
+        pwd
+        echo $PATH
         curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         chmod +x ./cc-test-reporter
         ./cc-test-reporter before-build
@@ -27,4 +29,6 @@ jobs:
         go build -v .
         go test ./... -coverprofile c.out
     - name: Report Code Coverage
-      run: ./cc-test-reporter after-build
+      run: |
+        pwd
+        ./cc-test-reporter after-build
