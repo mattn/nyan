@@ -22,9 +22,9 @@ jobs:
     - name: Get dependencies
       run: |
         go mod download
-    - name: Build
-      run: go build -v .
-    - name: Test
-      run: go test ./... -coverprofile c.out
+    - name: Build & Test
+      run: |
+        go build -v .
+        go test ./... -coverprofile c.out
     - name: Report Code Coverage
       run: ./cc-test-reporter after-build
