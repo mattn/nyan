@@ -9,9 +9,9 @@ jobs:
       run: |
         pwd
         echo $PATH
-        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter
-        chmod +x /usr/local/bin/cc-test-reporter
-        cc-test-reporter before-build
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ~/cc-test-reporter
+        chmod +x ~/cc-test-reporter
+        ~/cc-test-reporter before-build
       env:
         CC_TEST_REPORTER_ID: f4c78effd3a10a5a45239e6886b35f42475467ad53f09a01002feeb04eb92d5b
     - name: Set up Go 1.12
@@ -31,4 +31,4 @@ jobs:
     - name: Report Code Coverage
       run: |
         pwd
-        ./cc-test-reporter after-build
+        ~/cc-test-reporter after-build
