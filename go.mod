@@ -8,6 +8,6 @@ require (
 	github.com/dlclark/regexp2 v1.1.8 // indirect
 	github.com/mattn/go-isatty v0.0.8
 	github.com/spf13/cobra v0.0.5
-	github.com/stretchr/testify v1.3.0
+	github.com/stretchr/testify v1.4.0
 	golang.org/x/sys v0.0.0-20190726091711-fc99dfbffb4e // indirect
 )
