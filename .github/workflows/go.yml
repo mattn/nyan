@@ -7,11 +7,9 @@ jobs:
     steps:
     - name: Install Code Climate Reporter
       run: |
-        pwd
-        echo $PATH
-        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ~/cc-test-reporter
-        chmod +x ~/cc-test-reporter
-        ~/cc-test-reporter before-build
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+        ./cc-test-reporter before-build
       env:
         CC_TEST_REPORTER_ID: f4c78effd3a10a5a45239e6886b35f42475467ad53f09a01002feeb04eb92d5b
     - name: Set up Go 1.12
@@ -28,7 +26,10 @@ jobs:
       run: |
         go build -v .
         go test ./... -coverprofile c.out
-        ~/cc-test-reporter after-build -t ./c.out
+
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ~/cc-test-reporter
+        ./cc-test-reporter after-build
       # env:
       #   CC_TEST_REPORTER_ID: f4c78effd3a10a5a45239e6886b35f42475467ad53f09a01002feeb04eb92d5b
       #   GO111MODULE: on
